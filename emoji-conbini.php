@@ -28,5 +28,12 @@ function enqueue_assets() {
 		$asset_file['dependencies'],
 		$asset_file['version'],
 	);
+
+	wp_enqueue_style(
+		'emoji-conbini-styles',
+		plugins_url( 'src/editor.css', __FILE__ ),
+		[],
+		$asset_file['version'],
+	);
 }
 add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_assets' );
