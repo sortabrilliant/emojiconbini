@@ -11,6 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
 Description
 
+The one stop shop for all your emoji needs. 
+
 == Description ==
 
 == Screenshots ==
