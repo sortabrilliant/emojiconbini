@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Emoji Conbini
  * Plugin URI:  https://sortabrilliant.com/emojiconbini/
- * Description: @todo
+ * Description: Your one stop shop for all your emoji needs.
  * Author:      sorta brilliant
  * Author URI:  https://sortabrilliant.com/
  * Version:     1.0.0
