@@ -5,6 +5,11 @@ import NimblePicker from 'emoji-mart/dist-modern/components/picker/nimble-picker
 import data from 'emoji-mart/data/twitter.json';
 
 /**
+ * Internal dependencies
+ */
+import { grabTheRightIcon } from './util';
+
+/**
  * WordPress dependencies
  */
 import { toggleFormat, insertObject } from '@wordpress/rich-text';
@@ -44,7 +49,9 @@ const EmojiEdit = ( { isActive, value, onChange } ) => {
 				data={ data }
 				showPreview={ false }
 				showSkinTones={ false }
-				onSelect={ ( { unified, native } ) => {
+				onSelect={ ( { native } ) => {
+					const unified = grabTheRightIcon( native );
+
 					onChange( insertObject( value, {
 						type,
 						attributes: {
