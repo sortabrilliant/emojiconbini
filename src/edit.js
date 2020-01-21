@@ -2,7 +2,7 @@
  * External dependencies
  */
 import NimblePicker from 'emoji-mart/dist-modern/components/picker/nimble-picker';
-import data from 'emoji-mart/data/messenger.json';
+import data from 'emoji-mart/data/twitter.json';
 
 /**
  * WordPress dependencies
