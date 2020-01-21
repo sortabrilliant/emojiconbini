@@ -47,8 +47,8 @@ const EmojiEdit = ( { isActive, value, onChange } ) => {
 			<NimblePicker
 				set="twitter"
 				data={ data }
-				showPreview={ false }
 				showSkinTones={ false }
+				title="Emoji Conbini"
 				onSelect={ ( { native } ) => {
 					const unified = grabTheRightIcon( native );
 
