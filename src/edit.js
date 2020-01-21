@@ -8,8 +8,8 @@ import data from 'emoji-mart/data/twitter.json';
  * WordPress dependencies
  */
 import { toggleFormat, insertObject } from '@wordpress/rich-text';
-import { RichTextToolbarButton } from '@wordpress/block-editor';
-import { Popover } from '@wordpress/components';
+import { BlockControls } from '@wordpress/block-editor';
+import { Popover, Toolbar, IconButton } from '@wordpress/components';
 import { getRectangleFromRange } from '@wordpress/dom';
 
 const type = 'emoji-conbini/emoji';
@@ -28,44 +28,49 @@ const EmojiEdit = ( { isActive, value, onChange } ) => {
 		return getRectangleFromRange( anchorRange );
 	};
 
-	if ( isActive ) {
-		return (
-			<Popover
-				className="emoji-conbini-popover"
-				position="bottom center"
-				key="emoji-popover"
-				focusOnMount="container"
-				getAnchorRect={ anchorRect }
-				onClose={ () => {
-					onChange( toggleFormat( value, { type } ) );
+	const emojiPopover = isActive && (
+		<Popover
+			className="emoji-conbini-popover"
+			position="bottom center"
+			key="emoji-popover"
+			focusOnMount="container"
+			getAnchorRect={ anchorRect }
+			onClose={ () => {
+				onChange( toggleFormat( value, { type } ) );
+			} }
+		>
+			<NimblePicker
+				set="twitter"
+				data={ data }
+				showPreview={ false }
+				showSkinTones={ false }
+				onSelect={ ( { unified, native } ) => {
+					onChange( insertObject( value, {
+						type,
+						attributes: {
+							url: `https://s.w.org/images/core/emoji/12.0.0-1/svg/${ unified }.svg`,
+							alt: native,
+						},
+					} ) );
 				} }
-			>
-				<NimblePicker
-					set="twitter"
-					data={ data }
-					showPreview={ false }
-					showSkinTones={ false }
-					onSelect={ ( { unified, native } ) => {
-						onChange( insertObject( value, {
-							type,
-							attributes: {
-								url: `https://s.w.org/images/core/emoji/12.0.0-1/svg/${ unified }.svg`,
-								alt: native,
-							},
-						} ) );
-					} }
-				/>
-			</Popover>
-		);
-	}
+			/>
+		</Popover>
+	);
 
 	return (
-		<RichTextToolbarButton
-			icon="smiley"
-			title="Emoji Conbini"
-			onClick={ onToggle }
-			isActive={ isActive }
-		/>
+		<>
+			<BlockControls>
+				<Toolbar>
+					<IconButton
+						icon="smiley"
+						label="Emoji Conbini"
+						className="components-toolbar__control"
+						onClick={ onToggle }
+					/>
+				</Toolbar>
+			</BlockControls>
+			{ emojiPopover }
+		</>
 	);
 };
 
