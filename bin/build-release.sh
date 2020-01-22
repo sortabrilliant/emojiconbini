@@ -2,16 +2,19 @@
 
 PLUGIN="emojiconbini"
 VERSION=$(awk '/Version:/{print $NF}' $PLUGIN.php)
-REPOSITORY="https://github.com/sortabrilliant/emojiconbini"
-WORKING_DIR=`pwd`
 
-mkdir -p release/$PLUGIN
-git clone $REPOSITORY release/repo
+mkdir -p release
 
-cd $WORKING_DIR/release/repo
+echo "Grabbing the latest plugin version..."
+
+git clone pull
+
+echo "Running the build process..."
+
 npm install && npm run build
-cd $WORKING_DIR/release
 
-rsync -av --progress --exclude={'.*','bin','node_modules','src','release','.gitignore','composer*','package*','webpack*','phpcs.xml','README.md'} repo/* $PLUGIN
-zip -r "${PLUGIN}-${VERSION}.zip" $PLUGIN
-rm -rf repo
+echo "Create new release archive..."
+
+git archive --format=zip HEAD -o release/"${PLUGIN}-${VERSION}.zip"
+
+echo "Done!"
