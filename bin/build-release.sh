@@ -7,7 +7,7 @@ mkdir -p release
 
 echo "Grabbing the latest plugin version..."
 
-git clone pull
+git checkout master && git pull
 
 echo "Running the build process..."
 
