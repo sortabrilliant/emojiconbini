@@ -59,6 +59,9 @@
 .emoji-mart-anchor-selected {
   color: #464646;
 }
+.emoji-mart-anchor:not(:first-child) {
+  display: none;
+}
 
 .emoji-mart-anchor-selected .emoji-mart-anchor-bar {
   bottom: 0;
