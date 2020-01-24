@@ -23,7 +23,7 @@ Emoji make your WordPress site at least 5000% more fun, it's a scientific fact. 
  
 = What's a conbini? =
  
-Conbini are Japanese convenience stores (which I'm kinda obsessed over).
+Conbini are Japanese convenience stores (which I'm kinda obsessed with).
 
 == Screenshots ==
 1. Click. Click. Done.
