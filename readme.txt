@@ -4,7 +4,7 @@ Tags: emoji, block
 Requires at least: 5.0
 Tested up to: 5.3.2
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0-or-later
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -28,4 +28,5 @@ This plugin is brought to you by [sorta brilliant](https://sortabrilliant.com/) 
 1. Click. Click. Done.
 
 == Changelog ==
+* 1.0.1 Update Emoji Mart to v3.0.0
 * 1.0.0 Initial Commit
