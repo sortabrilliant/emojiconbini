@@ -24,7 +24,8 @@ const EmojiEdit = ( { isActive, value, onChange } ) => {
 	const onToggle = () => {
 		// Set up the anchorRange when the Popover is opened.
 		const selection = window.getSelection();
-		anchorRange = selection.rangeCount > 0 ? selection.getRangeAt( 0 ) : null;
+		anchorRange =
+			selection.rangeCount > 0 ? selection.getRangeAt( 0 ) : null;
 		onChange( toggleFormat( value, { type } ) );
 	};
 
@@ -52,13 +53,15 @@ const EmojiEdit = ( { isActive, value, onChange } ) => {
 				onSelect={ ( { native } ) => {
 					const unified = grabTheRightIcon( native );
 
-					onChange( insertObject( value, {
-						type,
-						attributes: {
-							url: `https://s.w.org/images/core/emoji/12.0.0-1/svg/${ unified }.svg`,
-							alt: native,
-						},
-					} ) );
+					onChange(
+						insertObject( value, {
+							type,
+							attributes: {
+								url: `https://s.w.org/images/core/emoji/12.0.0-1/svg/${ unified }.svg`,
+								alt: native,
+							},
+						} )
+					);
 				} }
 			/>
 		</Popover>
